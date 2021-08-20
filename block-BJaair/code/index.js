@@ -1,49 +1,66 @@
-let form = document.querySelector('form');
-let input = document.getElementById('title');
-let select = document.getElementById("select");
-let ul = document.querySelector('ul');
+let form = document.querySelector("form");
+let inputElm = document.querySelector(".input");
+let container = document.querySelector(".container");
+
+let cardsData = JSON.parse(localStorage.getItem("cards")) || [];
 
 
-console.log(select.value);
-
-class Data{
-    constructor(title,option){
-        this.title = title;
-        this.option = option;
-    }
-}
-
-class ListofData{
-    constructor(arr = []){
-      this.arr = [];
-    }
-    add(title,option){
-        let newArr = new Data(title,option);
-        this.arr.push(newArr);
-    }
-}
-
-function createUi(){
-    let li = document.createElement('li');
-    let container = document.createElement("div");
-    let title = document.createElement("blockquote");
-      title.innerText = input.value;
-    let option = document.createElement("cite");
-    for(var i=0; i < select.options.lenght; i++){
-        return option.innerText = select.option[i].value;
-    }
-    container.append(title,option);
-    li.append(container);
-    ul.append(li);
-}
-
-function handle(event){
-    ul.innerHTML = " ";
+form.addEventListener("submit", (event) => {
     event.preventDefault();
-    createUi();
-    input.value = " ";
-    select.value = " ";
+
+    let title = event.target.elements.title.value;
+    let category = event.target.elements.category.value;
+
+    cardsData.push({title, category});
+    localStorage.setItem("cards", JSON.stringify(cardsData));
+    createUI(cardsData, container);
+    event.target.elements.title.value = '';
+    event.target.elements.category.value = '';
+});
+
+function handleEdit(event, info, id, label ) {
+    let elm = event.target;
+    let input = document.createElement("input");
+    input.type = "text";
+    input.value = info;
+    input.addEventListener("keyup", (e) => {
+        if(e.keyCode === 13) {
+            let updatedValue = e.target.value;
+            cardsData[id][label] = updatedValue;
+            createUI();
+            localStorage.setItem("cards", JSON.stringify(cardsData));
+        }     
+    });
+    input.addEventListener("blur", (e) => {
+            let updatedValue = e.target.value;
+            cardsData[id][label] = updatedValue;
+            createUI();
+            localStorage.setItem("cards", JSON.stringify(cardsData));
+    });
+
+    let parent = event.target.parentElement;
+    parent.replaceChild(input, elm);
 }
 
 
-form.addEventListener("submit",handle);
+function createUI (data = cardsData, root = container) {
+    root.innerHTML = "";
+    let fragment = new DocumentFragment();
+    data.forEach((cardInfo, index) => {
+        let li = document.createElement("li");
+        li.classList.add("itemContainer");
+
+        let p = document.createElement("p");
+        p.innerText = cardInfo.category;
+        p.addEventListener("dblclick", (event) =>  handleEdit(event, cardInfo.category, index, "category"));
+
+        let h2 = document.createElement("h2");
+        h2.innerText = cardInfo.title;
+        h2.addEventListener("dblclick", (event) =>  handleEdit(event, cardInfo.title, index, "title"));
+
+        li.append(p, h2);
+        fragment.appendChild(li);       
+    });
+    root.append(fragment);
+}
+createUI(cardsData, container);

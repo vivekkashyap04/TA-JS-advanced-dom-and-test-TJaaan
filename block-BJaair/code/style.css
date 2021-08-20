@@ -1,9 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
+*/ html,
 body,
 div,
 span,
@@ -91,6 +86,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -105,17 +101,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -123,38 +123,47 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.main {
-  width: 600px;
-  margin: 10px auto;
-  text-align: center;
-  border: 2px solid black;
-  padding: 10px;
+html {
+  font-size: 16px;
 }
 
 body {
-  background-color: aqua;
+  line-height: 1.5;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.container {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin: 2rem;
 }
 
-#title {
-  margin: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+.form {
+  border: 2px solid #9af89a;
 }
 
-#select {
-  margin: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+.itemContainer {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 45%;
+  flex: 0 1 45%;
+  margin: 1rem;
+  padding: 1rem;
+  text-transform: capitalize;
+  background: #15aaf5;
+  border-radius: 24px;
+}
+
+.itemContainer h2 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.itemContainer p {
+  font-size: 1.2rem;
 }
