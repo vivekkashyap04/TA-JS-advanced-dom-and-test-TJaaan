@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "version": "6.0.0",
+  "description": "live server",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "loadsh": "0.0.4",
+    "moment": "^2.29.1",
+    "parcel-bundler": "^1.12.5"
+  }
+}
