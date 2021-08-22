@@ -6,21 +6,21 @@ const {
 } = require('./index');
 
 test('fullName', () => {
-  expect(getFullName('vivek', 'kumar').toBe('Vivek Kumar'));
+  expect(getFullName('vivek','kumar').toBe('Vivek Kumar'));
 });
 
 test('fullName', () => {
-  expect(getFullName('sunny', 'kumar').toBe('sunny Kumar'));
+  expect(getFullName('sunny','kumar').toBe('sunny Kumar'));
 });
 test('fullName', () => {
-  expect(getFullName('Arya', 'stark').toBe('Arya stark'));
+  expect(getFullName('Arya','stark').toBe('Arya stark'));
 });
 
 test('fullName', () => {
-  expect(getFullName('vivek', 'kumar').not.toBe('Vivek'));
+  expect(getFullName('vivek','kumar').not.toBe('Vivek'));
 });
 test('fullName', () => {
-  expect(getFullName('vivek', 'kumar').not.toBe(''));
+  expect(getFullName('vivek','kumar').not.toBe(''));
 });
 
 test('palindrome', () => {
@@ -44,5 +44,5 @@ test('getcicumfernce', () => {
 });
 
 test('arae', () => {
-  expect(area(10).toBe(Math.floor(314)));
+  expect(getArea(10).toBe(Math.floor(314)));
 });
