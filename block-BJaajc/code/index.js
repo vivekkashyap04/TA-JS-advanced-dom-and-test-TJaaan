@@ -9,13 +9,13 @@ function isPalindrome(name) {
 }
 
 function getCircumference(radius) {
-  let circumference = 2 * Math.PI * radius;
-  return `The circumference is ${circumfernce}`;
+  let circumference = Math.floor(2 * Math.PI * radius);
+  return `The circumference is ${circumference}`;
 }
 
 function getArea(radius) {
-  let area = Math.PI * radius * radius;
+  let area = Math.floor(Math.PI * radius * radius);
   return `The area is ${area}`;
 }
 
-module.export = { getFullName, isPalindrome, getCircumference, getArea };
+module.exports = { getFullName, isPalindrome, getCircumference, getArea };

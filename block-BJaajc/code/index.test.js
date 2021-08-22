@@ -5,44 +5,70 @@ const {
   getArea,
 } = require('./index');
 
-test('fullName', () => {
-  expect(getFullName('vivek','kumar').toBe('Vivek Kumar'));
+test('get full name to be John Snow', () => {
+  expect(getFullName('John', 'Snow')).toBe('John Snow');
 });
 
-test('fullName', () => {
-  expect(getFullName('sunny','kumar').toBe('sunny Kumar'));
-});
-test('fullName', () => {
-  expect(getFullName('Arya','stark').toBe('Arya stark'));
+test('get full name to be Arya Stark', () => {
+  expect(getFullName('Arya', 'Stark')).toBe('Arya Stark');
 });
 
-test('fullName', () => {
-  expect(getFullName('vivek','kumar').not.toBe('Vivek'));
-});
-test('fullName', () => {
-  expect(getFullName('vivek','kumar').not.toBe(''));
+test('get full name to be Arya Stark', () => {
+  expect(getFullName('Vivek', 'Kumar')).toBe('Vivek Kumar');
 });
 
-test('palindrome', () => {
-  expect(isPalindrome('madam').toBe('madam'));
+test('get full name not to be empty', () => {
+  expect(getFullName('Vivek', 'Kumar')).not.toBe('');
 });
 
-test('palindrome', () => {
-  expect(isPalindrome('level').toBe('level'));
+test('get full name not to be undefined', () => {
+  expect(getFullName('Vivek', 'Kumar')).not.toBe(undefined);
 });
 
-test('palindrome', () => {
-  expect(isPalindrome('nun').toBe('nun'));
-});
+test('Naman is a Palindrome', () => {
+    expect(isPalindrome('naman')).toBe(true);
+  });
 
-test('getcicumfernce', () => {
-  expect(getCircumference(4).toBe(Math.floor(25)));
-});
+  test('reviver is a Palindrome', () => {
+    expect(isPalindrome('reviver')).toBe(true);
+  });
+  
+  test('receiver is not a Palindrome', () => {
+    expect(isPalindrome('receiver')).not.toBe(true);
+  });
+  
+  test('JavaScript is not a Palindrome', () => {
+    expect(isPalindrome('javascript')).not.toBe(true);
+  });
+  
+  test('html is not a Palindrome', () => {
+      expect(isPalindrome('html')).not.toBe(true);
+    });
 
-test('getcicumfernce', () => {
-  expect(getCircumference(8).toBe(Math.floor(50)));
-});
-
-test('arae', () => {
-  expect(getArea(10).toBe(Math.floor(314)));
-});
+    test('Circumfrence of circle with radius 7 is 43', () => {
+        expect(getCircumference(7)).toBe('The circumference is 43');
+    });
+    
+    test('Circumfrence of circle with radius 7 is 43', () => {
+        expect(getCircumference(7)).toBe('The circumference is 43');
+    });
+    test('Circumfrence of circle with radius 5 is 31', () => {
+        expect(getCircumference(5)).toBe('The circumference is 31');
+    });
+    
+    test('Circumfrence of circle with radius 10 is 62', () => {
+        expect(getCircumference(10)).toBe('The circumference is 62');
+    });
+    
+    
+    test('Area of circle with radius 10 is 314', () => {
+        expect(getArea(10)).toBe('The area is 314');
+    });
+    
+    test('Area of circle with radius 7 is 153', () => {
+        expect(getArea(7)).toBe('The area is 153');
+    });
+    
+    test('Area of circle with radius 5 is 78', () => {
+        expect(getArea(5)).toBe('The area is 78');
+    });
