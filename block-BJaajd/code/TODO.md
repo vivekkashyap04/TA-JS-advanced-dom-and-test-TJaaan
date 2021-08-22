@@ -14,6 +14,7 @@ class Cart {
     this.items.push(item);
   }
 }
+
 ```
 
 2. Write test for the content of `calculator.js` file.
@@ -21,9 +22,21 @@ class Cart {
 3. Implement a function that takes an array and some other arguments then removes the other arguments from that array:
 
 ```js
-function removeFromArray() {}
+function removeFromArray(arr, value) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    }
+  }
+  return arr;
+}
 
 removeFromArray([1, 2, 3, 4], 3); // should remove 3 and return [1,2,4]
+
+
+test("test of array that delete value", () => {
+  expect(removeFromAray([1,2,3,4],3)).toEqual([1,2,4]);
+})
 ```
 
 Write three test for `removeFromArray` function
@@ -40,6 +53,12 @@ function map(items, callback) {
   }
   return final;
 }
+
+let mockFunction = jest.fn(value => value * 2);
+map([2,3,5],mockFunction);
+
+expect(mockFunction.mock.call.length).toBe(3);
+
 ```
 
 ```js
