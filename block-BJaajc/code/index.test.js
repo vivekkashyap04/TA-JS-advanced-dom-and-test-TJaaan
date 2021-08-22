@@ -39,6 +39,10 @@ test('getcicumfernce', () => {
   expect(getCircumference(4).toBe(Math.floor(25)));
 });
 
+test('getcicumfernce', () => {
+  expect(getCircumference(8).toBe(Math.floor(50)));
+});
+
 test('arae', () => {
   expect(area(10).toBe(Math.floor(314)));
 });
