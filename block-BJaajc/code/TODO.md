@@ -19,3 +19,24 @@ Pass the radius of a circle to the function and it returns the circumference bas
 - Create a function called `getArea`:
 
 Pass the radius to the function and it returns the area based on the radius, and output `The area is NN`.
+
+
+function getFullName(firstName,lastName){
+    const fullName = firstName + ' ' + lastName;
+    return fullName;
+}
+
+function isPalindrome(name){
+   let reverseName = name.split("").reverse().join("");
+   return reverseName === name ? true : false;
+}
+
+function getCircumference(radius){
+    let circumference = 2 * Math.PI * radius;
+    return `The circumference is ${circumfernce}`;
+}
+
+function getArea(radius){
+    let area = Math.PI * radius * radius;
+    return `The area is ${area}`; 
+}
